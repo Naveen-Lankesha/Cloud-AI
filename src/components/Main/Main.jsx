@@ -31,7 +31,7 @@ const Main = () => {
   return (
     <Box>
       <Navbar />
-      <Box flex={1} sx={{ p: 8 }}>
+      <Box id="midComp" flex={1} sx={{ p: 8 }}>
         <Typography
           variant="h2"
           sx={{
@@ -80,32 +80,32 @@ const Main = () => {
             icon={<CodeOutlinedIcon />}
           />
         </Stack>
-        <Box sx={{ mt: 3, pl: 8, pr: 8 }}>
-          <Paper
-            component="form"
-            sx={{
-              borderRadius: 5,
-              p: "2px 4px",
-              display: "flex",
-              alignItems: "center",
-            }}>
-            <InputBase
-              sx={{ ml: 1, flex: 1 }}
-              placeholder="Enter a prompt here"
-              //   inputProps={{ "aria-label": "search google maps" }}
-            />
-            <IconButton type="button" sx={{ p: "10px" }} aria-label="AddImage">
-              <AddPhotoAlternateOutlinedIcon />
-            </IconButton>
-            <IconButton type="button" sx={{ p: "10px" }} aria-label="AddImage">
-              <KeyboardVoiceOutlinedIcon />
-            </IconButton>
-            {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" /> */}
-            <IconButton sx={{ p: "10px" }} aria-label="directions">
-              <SendOutlinedIcon />
-            </IconButton>
-          </Paper>
-        </Box>
+      </Box>
+      <Box id="searchComp" sx={{ mt: 3, pl: 8, pr: 8 }}>
+        <Paper
+          component="form"
+          sx={{
+            borderRadius: 5,
+            p: "2px 4px",
+            display: "flex",
+            alignItems: "center",
+          }}>
+          <InputBase
+            sx={{ ml: 1, flex: 1 }}
+            placeholder="Enter a prompt here"
+            //   inputProps={{ "aria-label": "search google maps" }}
+          />
+          <IconButton type="button" sx={{ p: "10px" }} aria-label="AddImage">
+            <AddPhotoAlternateOutlinedIcon />
+          </IconButton>
+          <IconButton type="button" sx={{ p: "10px" }} aria-label="AddImage">
+            <KeyboardVoiceOutlinedIcon />
+          </IconButton>
+          {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" /> */}
+          <IconButton sx={{ p: "10px" }} aria-label="directions">
+            <SendOutlinedIcon />
+          </IconButton>
+        </Paper>
       </Box>
     </Box>
   );
