@@ -23,15 +23,14 @@ import KeyboardVoiceOutlinedIcon from "@mui/icons-material/KeyboardVoiceOutlined
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 
 import Card from "../Card/Card";
-import { Add } from "@mui/icons-material";
 
 const Main = () => {
   const size = 200;
   const padding = 4;
   return (
-    <Box>
+    <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
       <Navbar />
-      <Box id="midComp" flex={1} sx={{ p: 8 }}>
+      <Box sx={{ flex: 1, overflowY: "auto" }} id="midComp" p={8}>
         <Typography
           variant="h2"
           sx={{
@@ -52,7 +51,6 @@ const Main = () => {
             mt: 4,
             pl: 8,
             pr: 8,
-
             justifyContent: "center",
           }}>
           <Card
@@ -81,13 +79,23 @@ const Main = () => {
           />
         </Stack>
       </Box>
-      <Box id="searchComp" sx={{ mt: 3, pl: 8, pr: 8 }}>
+      <Box
+        id="searchComp"
+        display={"flex"}
+        flexDirection={"column"}
+        sx={{
+          p: 4,
+          justifyContent: "center",
+          alignItems: "center", // Center items horizontally
+        }}>
         <Paper
           component="form"
           sx={{
             borderRadius: 5,
             p: "2px 4px",
             display: "flex",
+            maxWidth: 800,
+            width: "100%",
             alignItems: "center",
           }}>
           <InputBase
@@ -106,13 +114,23 @@ const Main = () => {
             <SendOutlinedIcon />
           </IconButton>
         </Paper>
+        <Box
+          display={"flex"}
+          sx={{
+            justifyContent: "center",
+            pt: 1,
+          }}>
+          <Typography
+            variant="body2"
+            sx={{
+              color: grey[500],
+            }}>
+            Cloud7-AI can make mistakes. Check important info.
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );
 };
 
 export default Main;
-
-{
-  /* <Avatar alt="Remy Sharp" src={assets.user_icon} /> */
-}
