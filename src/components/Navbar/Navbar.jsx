@@ -5,7 +5,7 @@ import { assets } from "../../assets/assets";
 
 const Navbar = () => {
   return (
-    <Paper sx={{ borderRadius: 0, p: 1, pl: 3, pr: 4 }}>
+    <Paper elevation={0} sx={{ borderRadius: 0, pt: 2, pl: 3, pr: 4 }}>
       <Stack display={"flex"} flexDirection={"row"}>
         <Typography
           variant="h5"
