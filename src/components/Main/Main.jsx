@@ -1,5 +1,13 @@
-import { Box, InputBase, Paper, Stack, Typography } from "@mui/material";
-import React from "react";
+import {
+  Avatar,
+  Box,
+  InputBase,
+  LinearProgress,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
+import React, { useContext } from "react";
 import Navbar from "../Navbar/Navbar";
 import { grey } from "@mui/material/colors";
 
@@ -13,62 +21,112 @@ import KeyboardVoiceOutlinedIcon from "@mui/icons-material/KeyboardVoiceOutlined
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 
 import Card from "../Card/Card";
+import { Context } from "../../contex/Context";
+import { assets } from "../../assets/assets";
 
 const Main = () => {
+  const {
+    onSent,
+    recentPrompt,
+    showResult,
+    loading,
+    resultdata,
+    input,
+    setInput,
+  } = useContext(Context);
+
   const size = 200;
   const padding = 4;
   return (
     <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
       <Navbar />
-      <Box sx={{ flex: 1, overflowY: "auto" }} id="midComp" p={8}>
-        <Typography
-          variant="h2"
-          sx={{
-            background:
-              "linear-gradient(90deg, rgba(61, 101, 229, 1) 0%, rgba(223, 64, 84, 1) 50%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}>
-          Hello, Naveen
-        </Typography>
-        <Typography variant="h2" sx={{ color: grey[400] }}>
-          How can I help you today?
-        </Typography>
-        <Stack
-          direction={"row"}
-          spacing={4}
-          sx={{
-            mt: 4,
-            pl: 8,
-            pr: 8,
-            justifyContent: "center",
-          }}>
-          <Card
-            size={size}
-            padding={padding}
-            text={"Suggest beautiful places to see on an upcoming road trip"}
-            icon={<ExploreOutlinedIcon />}
-          />
-          <Card
-            size={size}
-            padding={padding}
-            text={"Suggest beautiful places to see on an upcoming road trip"}
-            icon={<LightbulbOutlinedIcon />}
-          />
-          <Card
-            size={size}
-            padding={padding}
-            text={"Suggest beautiful places to see on an upcoming road trip"}
-            icon={<ChatBubbleOutlineOutlinedIcon />}
-          />
-          <Card
-            size={size}
-            padding={padding}
-            text={"Suggest beautiful places to see on an upcoming road trip"}
-            icon={<CodeOutlinedIcon />}
-          />
-        </Stack>
-      </Box>
+      {!showResult ? (
+        <>
+          <Box sx={{ flex: 1, overflowY: "auto" }} id="midComp" p={8}>
+            <Typography
+              variant="h2"
+              sx={{
+                background:
+                  "linear-gradient(90deg, rgba(61, 101, 229, 1) 0%, rgba(223, 64, 84, 1) 50%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}>
+              Hello, Naveen
+            </Typography>
+            <Typography variant="h2" sx={{ color: grey[400] }}>
+              How can I help you today?
+            </Typography>
+            <Stack
+              direction={"row"}
+              spacing={4}
+              sx={{
+                mt: 4,
+                pl: 8,
+                pr: 8,
+                justifyContent: "center",
+              }}>
+              <Card
+                size={size}
+                padding={padding}
+                text={
+                  "Suggest beautiful places to see on an upcoming road trip"
+                }
+                icon={<ExploreOutlinedIcon />}
+              />
+              <Card
+                size={size}
+                padding={padding}
+                text={
+                  "Suggest beautiful places to see on an upcoming road trip"
+                }
+                icon={<LightbulbOutlinedIcon />}
+              />
+              <Card
+                size={size}
+                padding={padding}
+                text={
+                  "Suggest beautiful places to see on an upcoming road trip"
+                }
+                icon={<ChatBubbleOutlineOutlinedIcon />}
+              />
+              <Card
+                size={size}
+                padding={padding}
+                text={
+                  "Suggest beautiful places to see on an upcoming road trip"
+                }
+                icon={<CodeOutlinedIcon />}
+              />
+            </Stack>
+          </Box>
+        </>
+      ) : (
+        <Box sx={{ flex: 1, overflowY: "auto" }} id="midComp" p={8}>
+          <Stack direction={"row"} spacing={2}>
+            <Avatar alt="UserIcon" src={assets.user_icon} />
+            <Typography sx={{ textAlign: "justify" }}>
+              {recentPrompt}
+            </Typography>
+          </Stack>
+          <Box sx={{ mt: 4 }} />
+          <Stack direction={"row"} spacing={2}>
+            {/* <Typography>{resultdata}</Typography> */}
+            <Avatar alt="UserIcon" src={assets.Cloud7_logo} />
+            {loading ? (
+              <Stack sx={{ width: "100%", color: "grey.500" }} spacing={2}>
+                <LinearProgress color="secondary" />
+                <LinearProgress color="secondary" />
+                <LinearProgress color="secondary" />
+              </Stack>
+            ) : (
+              <p
+                style={{ textAlign: "justify" }}
+                dangerouslySetInnerHTML={{ __html: resultdata }}></p>
+            )}
+          </Stack>
+        </Box>
+      )}
+
       <Box
         id="searchComp"
         display={"flex"}
@@ -88,6 +146,8 @@ const Main = () => {
             alignItems: "center",
           }}>
           <InputBase
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             sx={{ ml: 1, flex: 1 }}
             placeholder="Enter a prompt here"
             //   inputProps={{ "aria-label": "search google maps" }}
@@ -99,7 +159,10 @@ const Main = () => {
             <KeyboardVoiceOutlinedIcon />
           </IconButton>
           {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" /> */}
-          <IconButton sx={{ p: "10px" }} aria-label="directions">
+          <IconButton
+            onClick={() => onSent()}
+            sx={{ p: "10px" }}
+            aria-label="directions">
             <SendOutlinedIcon />
           </IconButton>
         </Paper>
