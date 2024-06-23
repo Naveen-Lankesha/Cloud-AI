@@ -12,6 +12,7 @@ const Card = ({ size, padding, text, icon }) => {
         height: size,
         position: "relative",
         p: padding,
+        cursor: "pointer",
       }}>
       <Typography>{text}</Typography>
       <Box

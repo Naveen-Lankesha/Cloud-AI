@@ -1,15 +1,5 @@
-import {
-  Avatar,
-  Box,
-  Divider,
-  InputBase,
-  Paper,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, InputBase, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
-import { assets } from "../../assets/assets";
 import Navbar from "../Navbar/Navbar";
 import { grey } from "@mui/material/colors";
 
@@ -85,7 +75,6 @@ const Main = () => {
         flexDirection={"column"}
         sx={{
           p: 4,
-          justifyContent: "center",
           alignItems: "center", // Center items horizontally
         }}>
         <Paper
