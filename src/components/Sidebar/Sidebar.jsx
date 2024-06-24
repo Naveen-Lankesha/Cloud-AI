@@ -18,7 +18,7 @@ import { Context } from "../../contex/Context";
 
 const Sidebar = () => {
   const [extend, setExtend] = useState(false);
-  const { onSent, prevPrompts, setRecentPrompt } = useContext(Context);
+  const { onSent, prevPrompts, setRecentPrompt, newChat } = useContext(Context);
 
   const loadPrompt = async (prompt) => {
     setRecentPrompt(prompt);
@@ -37,7 +37,7 @@ const Sidebar = () => {
           </IconButton>
         </Tooltip>
       </Box>
-      <Stack direction={"row"} spacing={1}>
+      <Stack onClick={() => newChat()} direction={"row"} spacing={1}>
         {extend ? (
           <Button
             size="large"

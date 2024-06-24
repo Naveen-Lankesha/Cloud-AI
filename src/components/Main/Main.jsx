@@ -35,7 +35,7 @@ const Main = () => {
     setInput,
   } = useContext(Context);
 
-  const size = 200;
+  const size = 180;
   const padding = 4;
   return (
     <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
