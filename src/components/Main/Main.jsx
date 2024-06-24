@@ -42,7 +42,16 @@ const Main = () => {
       <Navbar />
       {!showResult ? (
         <>
-          <Box sx={{ flex: 1, overflowY: "auto" }} id="midComp" p={8}>
+          <Box
+            sx={{
+              flex: 1,
+              overflowY: "auto",
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
+            }}
+            id="midComp"
+            p={8}>
             <Typography
               variant="h2"
               sx={{
@@ -59,8 +68,14 @@ const Main = () => {
             <Grid
               container
               spacing={2}
-              sx={{ mt: 4, justifyContent: "center", pl: 8, pr: 8 }}>
-              <Grid item xs={12} sm={6} md={3}>
+              sx={{
+                mt: 4,
+                justifyContent: "center",
+                pl: { md: 8, lg: 16 },
+                pr: { md: 8, lg: 16 },
+                pt: { xl: 22 },
+              }}>
+              <Grid item sm={12} md={6} lg={3}>
                 <Card
                   padding={padding}
                   text={
@@ -69,7 +84,7 @@ const Main = () => {
                   icon={<ExploreOutlinedIcon />}
                 />
               </Grid>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid item sm={12} md={6} lg={3}>
                 <Card
                   padding={padding}
                   text={
@@ -78,7 +93,7 @@ const Main = () => {
                   icon={<LightbulbOutlinedIcon />}
                 />
               </Grid>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid item sm={12} md={6} lg={3}>
                 <Card
                   padding={padding}
                   text={
@@ -87,7 +102,7 @@ const Main = () => {
                   icon={<ChatBubbleOutlineOutlinedIcon />}
                 />
               </Grid>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid item sm={12} md={6} lg={3}>
                 <Card
                   padding={padding}
                   text={
