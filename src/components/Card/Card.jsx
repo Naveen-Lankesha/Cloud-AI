@@ -8,8 +8,6 @@ const Card = ({ size, padding, text, icon }) => {
     <Paper
       flex={1}
       sx={{
-        width: size,
-        height: size,
         position: "relative",
         p: padding,
         cursor: "pointer",

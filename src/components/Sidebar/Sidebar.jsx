@@ -43,7 +43,7 @@ const Sidebar = () => {
             size="large"
             variant="contained"
             sx={{ borderRadius: 6 }}
-            color="secondary">
+            color="grey">
             <AddIcon /> New Chat
           </Button>
         ) : (

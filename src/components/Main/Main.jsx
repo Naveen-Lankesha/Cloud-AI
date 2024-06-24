@@ -1,6 +1,7 @@
 import {
   Avatar,
   Box,
+  Grid,
   InputBase,
   LinearProgress,
   Paper,
@@ -35,7 +36,6 @@ const Main = () => {
     setInput,
   } = useContext(Context);
 
-  const size = 180;
   const padding = 4;
   return (
     <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
@@ -56,7 +56,49 @@ const Main = () => {
             <Typography variant="h2" sx={{ color: grey[400] }}>
               How can I help you today?
             </Typography>
-            <Stack
+            <Grid
+              container
+              spacing={2}
+              sx={{ mt: 4, justifyContent: "center", pl: 8, pr: 8 }}>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card
+                  padding={padding}
+                  text={
+                    "Suggest beautiful places to see on an upcoming road trip"
+                  }
+                  icon={<ExploreOutlinedIcon />}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card
+                  padding={padding}
+                  text={
+                    "Brief me about the latest technology trends in the market"
+                  }
+                  icon={<LightbulbOutlinedIcon />}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card
+                  padding={padding}
+                  text={
+                    "Brainstorm ideas for a new project that I am working on"
+                  }
+                  icon={<ChatBubbleOutlineOutlinedIcon />}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card
+                  padding={padding}
+                  text={
+                    "Implement a code snippet for a project that I am working on"
+                  }
+                  icon={<CodeOutlinedIcon />}
+                />
+              </Grid>
+            </Grid>
+
+            {/* <Stack
               direction={"row"}
               spacing={4}
               sx={{
@@ -66,7 +108,6 @@ const Main = () => {
                 justifyContent: "center",
               }}>
               <Card
-                size={size}
                 padding={padding}
                 text={
                   "Suggest beautiful places to see on an upcoming road trip"
@@ -74,7 +115,6 @@ const Main = () => {
                 icon={<ExploreOutlinedIcon />}
               />
               <Card
-                size={size}
                 padding={padding}
                 text={
                   "Suggest beautiful places to see on an upcoming road trip"
@@ -82,7 +122,6 @@ const Main = () => {
                 icon={<LightbulbOutlinedIcon />}
               />
               <Card
-                size={size}
                 padding={padding}
                 text={
                   "Suggest beautiful places to see on an upcoming road trip"
@@ -90,14 +129,13 @@ const Main = () => {
                 icon={<ChatBubbleOutlineOutlinedIcon />}
               />
               <Card
-                size={size}
                 padding={padding}
                 text={
                   "Suggest beautiful places to see on an upcoming road trip"
                 }
                 icon={<CodeOutlinedIcon />}
               />
-            </Stack>
+            </Stack> */}
           </Box>
         </>
       ) : (
