@@ -159,12 +159,14 @@ const Main = () => {
             <KeyboardVoiceOutlinedIcon />
           </IconButton>
           {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" /> */}
-          <IconButton
-            onClick={() => onSent()}
-            sx={{ p: "10px" }}
-            aria-label="directions">
-            <SendOutlinedIcon />
-          </IconButton>
+          {input ? (
+            <IconButton
+              onClick={() => onSent()}
+              sx={{ p: "10px" }}
+              aria-label="directions">
+              <SendOutlinedIcon />
+            </IconButton>
+          ) : null}
         </Paper>
         <Box
           display={"flex"}
