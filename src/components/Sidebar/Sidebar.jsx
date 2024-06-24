@@ -20,6 +20,11 @@ const Sidebar = () => {
   const [extend, setExtend] = useState(false);
   const { onSent, prevPrompts, setRecentPrompt } = useContext(Context);
 
+  const loadPrompt = async (prompt) => {
+    setRecentPrompt(prompt);
+    await onSent(prompt);
+  };
+
   return (
     <Box
       display={"flex"}
@@ -58,7 +63,11 @@ const Sidebar = () => {
         <Stack flex={16} direction={"column"} spacing={1}>
           {prevPrompts.map((prompt, index) => {
             return (
-              <Stack direction={"row"} spacing={1}>
+              <Stack
+                onClick={() => loadPrompt(prompt)}
+                direction={"row"}
+                spacing={1}
+                sx={{ cursor: "pointer" }}>
                 <ChatBubbleOutlineOutlinedIcon />
                 <Typography>{prompt.slice(0, 15)}..</Typography>
               </Stack>
